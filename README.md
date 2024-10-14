@@ -1,7 +1,6 @@
 # Índice
 
 - [Introducción](#introducción)
-- [Sección 1](#sección-1)
   - [Instalación](#instalación)
     - [WSL](#wsl-windows-subsystem-for-linux)
     - [Node.js](#nodejs)
@@ -9,13 +8,9 @@
     - [Next.js](#nextjs)
     - [MySQL](#mysql)
     - [Prisma](#prisma)
-    - [Tauri](#tauri)
-  - [Descripción](#descripción)
-  - [Uso](#uso)
-- [Sección 2](#sección-2)
-  - [Instalación](#instalación-1)
-  - [Descripción](#descripción-1)
-  - [Uso](#uso-1)
+    - [Tauri](#tauri) (POR TERMINAR)
+  - [Descripción](#descripción) (SIN REDACTAR)
+  - [Uso](#uso) (SIN REDACTAR)
 
 ---
 
@@ -23,9 +18,6 @@
 
 En esta guía redacto paso a paso como instalar cada una de las tecnologías mencionadas en el título de este repositorio así como la ejecución del proyecto creado. 
 
-La guía tendrá dos secciones, la sección 1 (guía completa), donde explico paso a paso cada comando a ejecutar para instalar todo lo necesario y la sección 2 (guía simplificada), donde explico, una vez instalado WSL, como clonar el proyecto de este repositorio e instalar lo necesario para ejecutarlo.
-
-## Sección 1
 ### Instalación
 
 >[!NOTE]
@@ -258,14 +250,14 @@ export WEBKIT_DISABLE_DMABUF_RENDERER=1
 npm run tauri dev
 ```
 
-==POR REDACTAR==
+==POR TERMINAR==
 8. Puede que surjan algunos errores, como que no funcionan los botones en la ventana renderizada, para ello:
 ```shell
 sudo usermod -aG video $USER
 
 ```
 
-## Sección 2
+---
 
 # README autogenerado por Next.js
 
