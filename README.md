@@ -9,8 +9,6 @@
     - [MySQL](#mysql)
     - [Prisma](#prisma)
     - [Tauri](#tauri) (POR TERMINAR)
-  - [Descripción](#descripción) (SIN REDACTAR)
-  - [Uso](#uso) (SIN REDACTAR)
 
 ---
 
@@ -254,7 +252,6 @@ npm run tauri dev
 8. Puede que surjan algunos errores, como que no funcionan los botones en la ventana renderizada, para ello:
 ```shell
 sudo usermod -aG video $USER
-
 ```
 
 ---
