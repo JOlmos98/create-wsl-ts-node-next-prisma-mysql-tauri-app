@@ -79,7 +79,7 @@ npx create-next-app@latest example-app
 	TypeScript? Yes 🟢
 	ESLint? Yes 🟢
 	Tailwind CSS? Yes 🟢
-	"src/" directory? No 🔴
+	"src/" directory? Yes 🟢
 	App Router? Yes 🟢
 	import alias ``(@/*)``? No 🔴
 3. Finalmente se instalarán las dependencias de React, TypeScript, Tailwind, etcétera y ya tendremos el proyecto.
