@@ -248,12 +248,119 @@ export WEBKIT_DISABLE_DMABUF_RENDERER=1
 npm run tauri dev
 ```
 
-==POR TERMINAR==
 8. Puede que surjan algunos errores, como que no funcionan los botones en la ventana renderizada, para ello:
 ```shell
 sudo usermod -aG video $USER
 ```
 
+9. Pueden surgir diversos warnings o erroes:
+
+Al iniciar Tauri da varios problemas relacionados con Zink, Vulkan y OpenGl, aquí una pequeña guía de como solucionarlos.
+
+1 - Agregamos nuestro usuario al grupo ``render`` con:
+```shell
+sudo usermod -a -G render $USER
+```
+
+2 - Agregamos también al grupo ``video``:
+```shell
+sudo usermod -a -G video $USER
+```
+
+3 - Como extra, pero en principio innecesario, podemos modificar los permisos del dispositivo directamente:
+```shell
+sudo chmod 666 /dev/dri/renderD128
+```
+
+4 - Agregamos variable de entorno:
+```shell
+export LIBGL_ALWAYS_SOFTWARE=1 #O también:
+echo "export LIBGL_ALWAYS_SOFTWARE=1" >> ~/.bashrc
+source ~/.bashrc
+```
+
+5 - Instalamos estos paquetes (muchos ya estarán instalados):
+```shell
+sudo apt update
+sudo apt install -y libgl1-mesa-dev
+sudo apt install -y libvulkan-dev
+sudo apt install -y mesa-vulkan-drivers
+sudo apt install -y mesa-utils
+sudo apt install -y libgbm-dev
+sudo apt install -y mesa-va-drivers
+sudo apt install -y mesa-vdpau-drivers
+sudo apt install -y libgl1-mesa-dri
+sudo apt install -y libegl-mesa0
+sudo apt install -y libdrm-dev
+sudo apt install -y libvulkan1
+sudo apt install -y vulkan-tools
+sudo apt install -y libvulkan-dev
+sudo apt install -y vulkan-validationlayers
+sudo apt install -y mesa-vulkan-drivers
+sudo apt upgrade
+```
+
+6 - Creamos enlace simbólico:
+```shell
+sudo mkdir -p /usr/lib/dri
+ls -l /usr/lib/x86_64-linux-gnu/dri/swrast_dri.so
+sudo ln -s /usr/lib/x86_64-linux-gnu/dri/swrast_dri.so /usr/lib/dri/vgem_dri.so
+```
+
+7 - Variables de entorno:
+```shell
+export LIBGL_ALWAYS_SOFTWARE=1
+export MESA_GL_VERSION_OVERRIDE=3.3
+# O en su caso:
+echo "export LIBGL_ALWAYS_SOFTWARE=1" >> ~/.bashrc
+echo "export MESA_GL_VERSION_OVERRIDE=3.3" >> ~/.bashrc
+source ~/.bashrc
+```
+
+8 - En el `tauri.conf.json` añadir la línea `"transparent": false`:
+```json
+    "windows": [
+      {
+        "title": "01-omega",
+        "width": 900,
+        "height": 900,
+        "resizable": true,
+        "fullscreen": false,
+        "transparent": false
+      }
+    ],
+```
+
+9 - Variables de entorno: 
+```shell
+echo "export LIBGL_ALWAYS_SOFTWARE=1" >> ~/.bashrc
+echo "export MESA_NO_ERROR=1" >> ~/.bashrc
+source ~/.bashrc
+```
+
+> [!WARNING] 
+> La primera variable indica a la aplicación que utilice la tarjeta gráfica integrada en lugar de la dedicada.
+> La segunda suprime mensajes de error de Mesa 3D.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+---
+---
+---
 ---
 
 # README autogenerado por Next.js
